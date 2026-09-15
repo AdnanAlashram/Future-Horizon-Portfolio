@@ -1369,6 +1369,8 @@ p {
   --cs-statement: clamp(1.1rem, 1.5vw, 1.45rem);
   --cs-chapter: clamp(1rem, 1.2vw, 1.15rem);
   --cs-body: 0.94rem;
+  /* Tighter than the home page — small type needs proportionally less air. */
+  --section-y: clamp(52px, 5.5vw, 86px);
 
   min-height: 100vh;
   padding: 28px 0 96px;
@@ -1555,8 +1557,8 @@ p {
 /* Story */
 
 .project-story {
-  padding-top: clamp(56px, 7vw, 100px);
-  padding-bottom: clamp(56px, 7vw, 100px);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
 }
 
 .project-story__grid {
@@ -1604,7 +1606,7 @@ p {
 
 /* Challenge / response — two margin cards rather than two walls of text. */
 .project-story--split {
-  padding-top: clamp(20px, 3vw, 44px);
+  padding-top: clamp(14px, 2vw, 28px);
   background: transparent;
 }
 
@@ -1667,11 +1669,6 @@ p {
 
 /* Ecosystem */
 
-.project-ecosystem {
-  padding-top: clamp(64px, 8vw, 116px);
-  padding-bottom: clamp(64px, 8vw, 116px);
-}
-
 .project-ecosystem .section-heading { align-items: start; }
 
 .ecosystem-map {
@@ -1727,8 +1724,6 @@ p {
 /* Features */
 
 .project-features {
-  padding-top: clamp(64px, 8vw, 112px);
-  padding-bottom: clamp(64px, 8vw, 112px);
   background:
     radial-gradient(760px 420px at 82% 0%, rgba(150, 64, 90, 0.3), transparent 60%),
     var(--brand-deep);
@@ -1771,8 +1766,7 @@ p {
 /* Stack + engineering */
 
 .project-stack {
-  padding-top: clamp(64px, 8vw, 112px);
-  padding-bottom: clamp(56px, 7vw, 96px);
+  padding-bottom: calc(var(--section-y) * 0.65);
 }
 
 .project-stack__grid {
@@ -1818,7 +1812,6 @@ p {
 
 .project-engineering {
   padding-top: 0;
-  padding-bottom: clamp(64px, 8vw, 112px);
 }
 
 .engineering-grid {
@@ -1855,11 +1848,6 @@ p {
 }
 
 /* Gallery */
-
-.project-gallery-section {
-  padding-top: clamp(56px, 7vw, 100px);
-  padding-bottom: clamp(56px, 7vw, 100px);
-}
 
 .project-gallery {
   display: grid;
@@ -1912,8 +1900,6 @@ p {
 /* Outcome + next */
 
 .project-outcome {
-  padding-top: clamp(60px, 7vw, 104px);
-  padding-bottom: clamp(60px, 7vw, 104px);
   background:
     radial-gradient(620px 360px at 90% 100%, rgba(150, 64, 90, 0.5), transparent 62%),
     var(--brand-primary);
@@ -2152,7 +2138,15 @@ p {
   .footer-links { justify-content: start; }
 
   .project-page { padding-top: 18px; }
-  .project-page__topbar { margin-bottom: 56px; }
+
+  /* Tighten both labels enough to keep the top bar on one line. */
+  .project-page__topbar { gap: 14px; margin-bottom: 48px; }
+  .back-link,
+  .project-page__index {
+    font-size: 0.57rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
   .project-hero__copy h1 { font-size: clamp(2.3rem, 12vw, 3.4rem); }
   .project-story__chapter { padding: 24px 22px 26px; }
   .project-story__number { top: 24px; right: 22px; }
